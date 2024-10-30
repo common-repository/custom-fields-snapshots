@@ -1,0 +1,337 @@
+#wpbody .custom-fields-snapshots .nav-tab-wrapper {
+    border-bottom: 0;
+}
+
+.custom-fields-snapshots .post-type-section h4,
+.custom-fields-snapshots .site-wide-section h4 {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.custom-fields-snapshots .export-tab {
+    display: grid;
+    gap: 1em;
+    grid-template-columns: 1fr;
+}
+
+.custom-fields-snapshots .export-step {
+    background-color: #fff;
+    border: 1px solid #ccd0d4;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+    margin-bottom: 1em;
+    padding: 20px;
+    height: min-content;
+}
+
+.custom-fields-snapshots .step-number {
+    background-color: var(--custom-fields-snapshots-primary-color, #2271b1);
+    border-radius: 50%;
+    color: #fff;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 10px;
+    text-align: center;
+    user-select: none;
+    width: 30px;
+}
+
+.custom-fields-snapshots .export-step h3 {
+    display: inline-block;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.custom-fields-snapshots .post-types-container {
+    display: grid;
+    gap: 0.75em;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: flex-start;
+}
+
+.custom-fields-snapshots .post-type-section,
+.custom-fields-snapshots .site-wide-section {
+	border-radius: 5px;
+	flex-basis: 33.333%;
+	padding-top: 20px;
+}
+
+.custom-fields-snapshots label:not(:first-of-type) {
+    padding-left: 0.5em;
+}
+
+.custom-fields-snapshots .export-tab .export-step label.disabled {
+	color: #999;
+	cursor: not-allowed;
+}
+
+.custom-fields-snapshots label.disabled input {
+    cursor: not-allowed;
+}
+
+.custom-fields-snapshots .export-field-groups {
+    border-radius: 5px;
+    display: grid;
+    gap: 0.5em;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    padding: 0.5em 0;
+}
+
+.custom-fields-snapshots .export-field-groups label {
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: flex;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+.custom-fields-snapshots .export-field-groups label:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.custom-fields-snapshots .export-field-groups input[type="checkbox"] {
+    align-self: center;
+    margin-right: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.custom-fields-snapshots .select-all-field-groups-container {
+    align-items: center;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: flex;
+    gap: 0.5em;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+    width: fit-content;
+}
+
+.custom-fields-snapshots .select-all-field-groups-container:hover {
+    background-color: #e8e8e8;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.custom-fields-snapshots .select-all-field-groups-container label {
+    color: #23282d;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.custom-fields-snapshots .scrollable-content {
+    max-height: 50vh;
+    overflow-y: auto;
+    padding: 10px 0;
+}
+
+.custom-fields-snapshots .post-type-selection,
+.custom-fields-snapshots .user-selection,
+.custom-fields-snapshots .user-role-selection,
+.custom-fields-snapshots .taxonomy-selection {
+    margin-bottom: 5px;
+}
+
+.custom-fields-snapshots .post-type-selection label,
+.custom-fields-snapshots .user-selection label,
+.custom-fields-snapshots .user-role-selection label,
+.custom-fields-snapshots .taxonomy-selection label {
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: flex;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+.custom-fields-snapshots .post-type-selection label:hover,
+.custom-fields-snapshots .user-selection label:hover,
+.custom-fields-snapshots .user-role-selection label:hover,
+.custom-fields-snapshots .term-ids-selection label:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.custom-fields-snapshots .post-type-selection input[type="checkbox"],
+.custom-fields-snapshots .user-selection input[type="checkbox"],
+.custom-fields-snapshots .user-role-selection input[type="checkbox"],
+.custom-fields-snapshots .taxonomy-selection input[type="checkbox"] {
+    margin-right: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.custom-fields-snapshots .post-ids-selection,
+.custom-fields-snapshots .user-ids-selection,
+.custom-fields-snapshots .user-roles-selection,
+.custom-fields-snapshots .term-ids-selection {
+    margin: 5px 0;
+}
+
+.custom-fields-snapshots .post-ids-selection label,
+.custom-fields-snapshots .user-ids-selection label,
+.custom-fields-snapshots .user-roles-selection label,
+.custom-fields-snapshots .taxonomy-selection label {
+    margin-bottom: 0.5em;
+}
+
+.custom-fields-snapshots .select-all-public-post-types {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.custom-fields-snapshots .select-all-post-types-container label,
+.custom-fields-snapshots .select-all-taxonomies-container label,
+.custom-fields-snapshots .select-all-site-wide-data-container label {
+    align-items: center;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    width: auto;
+}
+
+.custom-fields-snapshots .post-ids-selection .post-info,
+.custom-fields-snapshots .user-ids-selection .post-info,
+.custom-fields-snapshots .user-roles-selection .post-info,
+.custom-fields-snapshots .taxonomy-selection .post-info {
+    color: #afafaf;
+}
+
+.custom-fields-snapshots .custom-fields-snapshot-post-item,
+.custom-fields-snapshots .custom-fields-snapshot-post-type-item,
+.custom-fields-snapshots .custom-fields-snapshot-user-item,
+.custom-fields-snapshots .custom-fields-snapshot-taxonomy-item,
+.custom-fields-snapshots .custom-fields-snapshot-term-item {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 0.5em;
+}
+
+.custom-fields-snapshots .tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.custom-fields-snapshots .tooltip .tooltiptext {
+    visibility: hidden;
+    width: max-content;
+    background-color: #353333;
+    color: #fff;
+    text-align: right;
+    border-radius: 6px;
+    padding: 5px 10px;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    right: 100%;
+    margin-right: 10px;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    white-space: pre-line;
+}
+
+.custom-fields-snapshots .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.custom-fields-snapshots .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent #353333;
+}
+
+@media (max-width: 768px) {
+    .custom-fields-snapshots .export-tab {
+        gap: 0.25em;
+        grid-template-columns: 1fr;
+    }
+
+    .custom-fields-snapshots .export-step h4 {
+        padding-top: 1em;
+    }
+
+    .custom-fields-snapshots .post-types-container {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .custom-fields-snapshots .export-form input {
+        margin: 0.5em 0.5em 0.5em 0;
+    }
+
+    .custom-fields-snapshots .post-type-section,
+    .custom-fields-snapshots .site-wide-section {
+        flex-basis: 100%;
+        padding-top: 0;
+    }
+
+    .custom-fields-snapshots .select-all-field-groups-container {
+        padding: 5px 10px;
+        width: auto;
+    }
+    
+    .custom-fields-snapshots .export-field-groups label {
+        padding: 5px 10px;
+    }
+
+    .custom-fields-snapshots .post-type-selection input[type="checkbox"],
+    .custom-fields-snapshots .user-selection input[type="checkbox"],
+    .custom-fields-snapshots .user-role-selection input[type="checkbox"],
+    .custom-fields-snapshots .taxonomy-selection input[type="checkbox"] {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+
+    .custom-fields-snapshots .export-field-groups input[type="checkbox"] {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    
+    .custom-fields-snapshots .post-type-selection label,
+    .custom-fields-snapshots .user-selection label,
+    .custom-fields-snapshots .user-role-selection label,
+    .custom-fields-snapshots .taxonomy-selection label {
+        padding: 5px 10px;
+    }
+
+    .custom-fields-snapshots .published-label,
+    .custom-fields-snapshots .dashicons.dashicons-info,
+    .custom-fields-snapshots .tooltip .tooltiptext::after {
+        display: none;
+    }
+
+    .custom-fields-snapshots .tooltip .tooltiptext {
+        background-color: transparent;
+        color: inherit;
+        border-radius: 0;
+        padding: 0;
+        position: static;
+        margin-right: 0;
+        transform: none;
+        opacity: 1;
+        transition: none;
+        font-size: 0.75rem;
+        display: inline-block;
+        width: fit-content;
+        visibility: visible;
+    }
+}

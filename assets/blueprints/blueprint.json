@@ -1,0 +1,53 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "landingPage": "/wp-admin/admin.php?page=custom-fields-snapshots",
+  "preferredVersions": {
+      "php": "7.4",
+      "wp": "latest"
+  },
+  "steps": [
+      {
+          "step": "login"
+      },
+      {
+          "step": "installPlugin",
+          "pluginZipFile": {
+              "resource": "wordpress.org/plugins",
+              "slug": "advanced-custom-fields"
+          },
+          "options": {
+              "activate": true
+          }
+      },
+      {
+          "step": "installPlugin",
+          "pluginZipFile": {
+              "resource": "wordpress.org/plugins",
+              "slug": "custom-fields-snapshots"
+          },
+          "options": {
+              "activate": true
+          }
+      },
+      {
+          "step": "mkdir",
+          "path": "/wordpress/wp-content/plugins/example-custom-post-types"
+      },
+      {
+          "step": "writeFile",
+          "path": "/wordpress/wp-content/plugins/example-custom-post-types/example-custom-post-types.php",
+          "data": {
+              "resource": "url",
+              "url": "https://gist.githubusercontent.com/alex02/851681649f76b9fa9236a0ab7af7fa8f/raw/7fe830c041e9d3c8c1ce26633a01f666f11e11ed/example-custom-post-types.php"
+          }
+      },
+      {
+          "step": "activatePlugin",
+          "pluginPath": "example-custom-post-types/example-custom-post-types.php"
+      },
+      {
+        "step": "runPHP",
+        "code": "<?php require_once('/wordpress/wp-load.php'); if(function_exists('acf_add_local_field_group')): acf_add_local_field_group(array('key'=>'group_blog_post_details','title'=>'Blog Post Details','fields'=>array(array('key'=>'field_post_subtitle','label'=>'Post Subtitle','name'=>'post_subtitle','type'=>'text'),array('key'=>'field_post_excerpt','label'=>'Post Excerpt','name'=>'post_excerpt','type'=>'textarea'),array('key'=>'field_post_reading_time','label'=>'Estimated Reading Time (minutes)','name'=>'post_reading_time','type'=>'number')),'location'=>array(array(array('param'=>'post_type','operator'=>'==','value'=>'post'))))); $post_titles=array('Quantum Computing Breakthroughs','Machine Learning Algorithms','Blockchain Technology Advancements'); $post_subtitles=array('Exploring the potential of quantum bits','Innovations in neural networks','Decentralized ledger systems'); $post_content=array('Recent developments in quantum computing...','Advanced machine learning techniques...','The impact of blockchain on various industries...'); $reading_times=array(12,10,8); for($i=0;$i<3;$i++){ $post_id=wp_insert_post(array('post_title'=>$post_titles[$i],'post_content'=>$post_content[$i],'post_status'=>'publish','post_type'=>'post')); update_field('post_subtitle',$post_subtitles[$i],$post_id); update_field('post_excerpt','Excerpt for '.$post_titles[$i],$post_id); update_field('post_reading_time',$reading_times[$i],$post_id); } acf_add_local_field_group(array('key'=>'group_page_details','title'=>'Page Details','fields'=>array(array('key'=>'field_page_header','label'=>'Page Header','name'=>'page_header','type'=>'text'),array('key'=>'field_page_summary','label'=>'Page Summary','name'=>'page_summary','type'=>'textarea'),array('key'=>'field_page_cta','label'=>'Call to Action Button','name'=>'page_cta','type'=>'link')),'location'=>array(array(array('param'=>'post_type','operator'=>'==','value'=>'page'))))); $page_titles=array('About Our Technology','Our Services','Contact Us'); $page_headers=array('Innovative Solutions','Cutting-Edge Services','Get in Touch'); $page_summaries=array('Learn about our advanced technological solutions.','Explore our range of high-tech services.','Reach out to our team of experts.'); $page_ctas=array(array('title'=>'Our Innovations','url'=>'#innovations'),array('title'=>'Service Catalog','url'=>'#services'),array('title'=>'Contact Form','url'=>'#contact-form')); for($i=0;$i<3;$i++){ $page_id=wp_insert_post(array('post_title'=>$page_titles[$i],'post_content'=>'Content for '.$page_titles[$i],'post_status'=>'publish','post_type'=>'page')); update_field('page_header',$page_headers[$i],$page_id); update_field('page_summary',$page_summaries[$i],$page_id); update_field('page_cta',$page_ctas[$i],$page_id); } $custom_post_types=array('product','event','testimonial','team_member'); $field_groups=array('product'=>array(array('key'=>'field_product_price','label'=>'Price','name'=>'product_price','type'=>'number'),array('key'=>'field_product_sku','label'=>'SKU','name'=>'product_sku','type'=>'text'),array('key'=>'field_product_stock','label'=>'Stock Quantity','name'=>'product_stock','type'=>'number')),'event'=>array(array('key'=>'field_event_date','label'=>'Event Date','name'=>'event_date','type'=>'date_picker'),array('key'=>'field_event_location','label'=>'Location','name'=>'event_location','type'=>'text'),array('key'=>'field_event_capacity','label'=>'Capacity','name'=>'event_capacity','type'=>'number')),'testimonial'=>array(array('key'=>'field_testimonial_author','label'=>'Author','name'=>'testimonial_author','type'=>'text'),array('key'=>'field_testimonial_company','label'=>'Company','name'=>'testimonial_company','type'=>'text'),array('key'=>'field_testimonial_rating','label'=>'Rating','name'=>'testimonial_rating','type'=>'number')),'team_member'=>array(array('key'=>'field_team_member_position','label'=>'Position','name'=>'team_member_position','type'=>'text'),array('key'=>'field_team_member_email','label'=>'Email','name'=>'team_member_email','type'=>'email'),array('key'=>'field_team_member_bio','label'=>'Biography','name'=>'team_member_bio','type'=>'textarea'))); foreach($custom_post_types as $post_type){ acf_add_local_field_group(array('key'=>'group_'.$post_type.'_details','title'=>ucfirst($post_type).' Details','fields'=>$field_groups[$post_type],'location'=>array(array(array('param'=>'post_type','operator'=>'==','value'=>$post_type))))); for($i=0;$i<3;$i++){ $post_id=wp_insert_post(array('post_title'=>ucfirst($post_type).' '.($i+1),'post_content'=>'Content for '.ucfirst($post_type).' '.($i+1),'post_status'=>'publish','post_type'=>$post_type)); foreach($field_groups[$post_type] as $field){ $value=''; switch($field['type']){ case 'number': $value=rand(1,100); break; case 'text': case 'textarea': $value='Sample '.$field['label'].' '.($i+1); break; case 'date_picker': $value=date('Y-m-d',strtotime('+'.$i.' months')); break; case 'email': $value='email'.($i+1).'@example.com'; break; } update_field($field['name'],$value,$post_id); } } } endif;"
+      }
+  ]
+}

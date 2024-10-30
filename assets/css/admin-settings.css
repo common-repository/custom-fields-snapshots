@@ -1,0 +1,40 @@
+#wpbody .custom-fields-snapshots .nav-tab-wrapper {
+	border-bottom: 0;
+}
+
+.custom-fields-snapshots .settings-tab {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 1em;
+}
+
+.custom-fields-snapshots form,
+.custom-fields-snapshots .info-box {
+    margin-bottom: 1em;
+    background-color: #fff;
+    border: 1px solid #ccd0d4;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+    padding: 20px;
+    height: min-content;
+}
+
+.custom-fields-snapshots .contribute-box {
+	display: flex;
+	gap: 0.5em;
+}
+
+.custom-fields-snapshots .form-table .description {
+	width: 50%;
+}
+
+@media (max-width: 768px) {
+    .custom-fields-snapshots .settings-tab {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1em;
+    }
+
+    .custom-fields-snapshots .form-table .description {
+        width: 100%;
+    }
+}
